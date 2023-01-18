@@ -23,11 +23,6 @@ public class WaitTypes {
        driver.manage().window().maximize();
     }
 
-
-
-
-
-
     public void testWaitImplicit(int seconds) {
         System.out.println("WaitTests.testWaitImplicit");
         driver.get("https://demoqa.com/dynamic-properties");
@@ -36,7 +31,6 @@ public class WaitTypes {
         WebElement visibleAfter5SecondsButton = driver.findElement(By.id("visibleAfter"));
         Assert.assertEquals("Visible After 5 Seconds", visibleAfter5SecondsButton.getText());
     }
-
 
     public void testWaitExplicit(int seconds) {
         System.out.println("WaitTests.testWaitExplicit");
