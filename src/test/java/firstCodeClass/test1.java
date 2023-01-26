@@ -8,8 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class test1 {
     public static void main(String[] args){
-        System.out.println("hello world");
-        System.setProperty("webdriver.chrome.driver", "C:\\browserDrivers\\chromedriver.exe"  );
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe"  );
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
@@ -22,8 +21,12 @@ public class test1 {
         passwordInput.sendKeys("secret_sauce");
         loginButton.click();
 
+        WebElement SauceLabsBackpack_label = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div"));
+
         //Use the code below, to match the expected text of the first item in the shop
-        //Assert.assertEquals();
+        Assert.assertEquals("Sauce Labs Backpack",SauceLabsBackpack_label.getText());
+        System.out.println("Everything works");
+
 
 
 
