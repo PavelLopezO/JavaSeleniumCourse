@@ -1,6 +1,7 @@
 package firstCodeClass;
 
 import firstCodeClass.PO.ButtonsPagePo;
+import firstCodeClass.PO.CartPage;
 import firstCodeClass.PO.LoginSauceDemo;
 import firstCodeClass.PO.ProductsPage;
 import org.junit.After;
@@ -17,6 +18,7 @@ public class Tests {
     ButtonsPagePo buttonsPagePo;
     LoginSauceDemo loginSauceDemo;
     ProductsPage productsPage;
+    CartPage cartPage;
     DriverClass driverClass = new DriverClass();
 
 
@@ -45,6 +47,15 @@ public class Tests {
     public void Homework3_1()
     {
         loginSauceDemo.login();
+        productsPage.addTwoElementsToCart();
+        productsPage.goToCartPage();
+        cartPage.AssertElementsInCart();
+    }
+    @Test
+    public void Homework3_2()
+    {
+        loginSauceDemo.login();
+        productsPage.printAllProductsName();
     }
 
     @Test
@@ -63,6 +74,7 @@ public class Tests {
         buttonsPagePo = new ButtonsPagePo(driver);
         loginSauceDemo = new LoginSauceDemo(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
 
     }
 
@@ -72,7 +84,8 @@ public class Tests {
     }
 
     @AfterClass  //@AfterClass annotation tells Selenium that this will at the end of this class
-    public static void completeTesting() {
+    public static void completeTesting()
+    {
         System.out.println("All tests complete :) ");
     }
 }
