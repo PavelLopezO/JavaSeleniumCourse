@@ -1,6 +1,8 @@
 package firstCodeClass;
 
 import firstCodeClass.PO.ButtonsPagePo;
+import firstCodeClass.PO.LoginSauceDemo;
+import firstCodeClass.PO.ProductsPage;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,7 +15,10 @@ public class Tests {
     private WebDriver driver;
     //Declaring an instance of buttonsPagePo, so that we can use its methods
     ButtonsPagePo buttonsPagePo;
+    LoginSauceDemo loginSauceDemo;
+    ProductsPage productsPage;
     DriverClass driverClass = new DriverClass();
+
 
 
     @Test //@Test annotation tells selenium that this is an individual test scenario
@@ -36,12 +41,29 @@ public class Tests {
         buttonsPagePo.clickThirdButton();
         buttonsPagePo.checkDynamicClickMeLabel("You have done a dynamic click");
     }
+    @Test
+    public void Homework3_1()
+    {
+        loginSauceDemo.login();
+    }
+
+    @Test
+    public void testLoginSaucePage ()
+        {
+            driver.get("https://www.saucedemo.com/");
+            loginSauceDemo.sendUserName();
+            loginSauceDemo.sendUserPassword();
+            loginSauceDemo.clickLoginButton();
+        }
 
     @Before //@Before annotation tells Selenium that this will run before each @Test
     public void iniDriver() {
         driverClass.initDriver();
         driver = driverClass.getDriver();
         buttonsPagePo = new ButtonsPagePo(driver);
+        loginSauceDemo = new LoginSauceDemo(driver);
+        productsPage = new ProductsPage(driver);
+
     }
 
     @After //@After annotation tells Selenium that this will run after each @Test
