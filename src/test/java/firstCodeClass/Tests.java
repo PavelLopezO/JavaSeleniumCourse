@@ -24,7 +24,8 @@ public class Tests {
 
 
     @Test //@Test annotation tells selenium that this is an individual test scenario
-    public void testDoubleClickButton() {
+    public void testDoubleClickButton()
+    {
         driver.get("https://demoqa.com/buttons");
         buttonsPagePo.doubleClickFirstButton();
         buttonsPagePo.checkDoubleClickMeLabel();
@@ -66,6 +67,14 @@ public class Tests {
             loginSauceDemo.sendUserPassword();
             loginSauceDemo.clickLoginButton();
         }
+    @Test
+    public void Homework4()
+    {
+        loginSauceDemo.login();
+        productsPage.openAllItemsHamburger ();
+
+    }
+
 
     @Before //@Before annotation tells Selenium that this will run before each @Test
     public void iniDriver() {

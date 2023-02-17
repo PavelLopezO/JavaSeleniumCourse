@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ProductsPage
 {
@@ -39,6 +40,12 @@ public class ProductsPage
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
     WebElement Cart_button;
 
+    @FindBy(xpath = "//*[@id=\"react-burger-menu-btn\"]")
+    WebElement hamburguer_button;
+
+    @FindBy(xpath = "//*[@id=\"inventory_sidebar_link\"]")
+    WebElement allItems_hamburguer;
+
     @FindBy(className = "inventory_item_name")
     List<WebElement> allProducts_Labels;
 
@@ -60,6 +67,13 @@ public class ProductsPage
             System.out.println("Element " + i + " " + allProducts_Labels.get(i).getText());
         }
         System.out.println("Homework 3.2, Done");
+    }
+
+    public void openAllItemsHamburger()
+    {
+        hamburguer_button.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        allItems_hamburguer.click();
     }
 
 }
